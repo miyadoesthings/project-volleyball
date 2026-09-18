@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project Volleyball Privacy Policy</title>
+<meta name="description" content="What Project Volleyball, a multiplayer VR volleyball game for Meta Quest, collects, why, who it's shared with, how long it's kept, and how to have it deleted.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%90%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600;112..125,800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    color-scheme: light dark;
+    --ground: #f5f6f9;
+    --surface: #ffffff;
+    --ink: #16203a;
+    --muted: #566079;
+    --rule: #dce0e8;
+    --accent: #a8531f;
+    --accent-soft: #f6e6da;
+    /* the court band keeps its colours in both themes: it's the game's floor */
+    --band: #d6915a;
+    --band-deep: #c17a43;
+    --band-ink: #16203a;
+    --band-line: rgba(255, 255, 255, 0.9);
+    --focus: #2f6fe0;
+
+    --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0e1322;
+      --surface: #151c30;
+      --ink: #e7ebf3;
+      --muted: #9ba4b8;
+      --rule: #273049;
+      --accent: #efa06a;
+      --accent-soft: #2a2130;
+      --focus: #8fb4ff;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---- the court band ---- */
+  .band {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--band) 0%, var(--band-deep) 100%);
+    color: var(--band-ink);
+    padding-inline: 16px;
+    padding-block: 56px 48px;
+  }
+  /* the centre line and the two attack lines either side of it, as they sit on the floor */
+  .band::before, .band::after, .band .attack {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--band-line);
+    pointer-events: none;
+  }
+  .band::before { right: 22%; }
+  .band .attack { right: calc(22% + 150px); width: 3px; opacity: 0.75; }
+  .band::after { right: calc(22% - 150px); width: 3px; opacity: 0.75; }
+  .band-inner { position: relative; max-width: 1080px; margin: 0 auto; }
+  .eyebrow {
+    font-family: var(--display);
+    font-stretch: 112%;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-stretch: 125%;
+    font-weight: 800;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .meta {
+    margin: 18px 0 0;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+  }
+  .meta a { color: var(--band-ink); font-weight: 600; overflow-wrap: anywhere; }
+  .meta a:focus-visible { outline-color: var(--band-ink); }
+
+  /* ---- page ---- */
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-inline: 16px;
+    padding-block: 36px 72px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  @media (min-width: 900px) {
+    .page { grid-template-columns: 220px minmax(0, 1fr); gap: 56px; }
+  }
+
+  .toc { font-size: 15px; }
+  @media (min-width: 900px) {
+    .toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 28px); align-self: start; }
+  }
+  .toc h2 {
+    font-family: var(--display);
+    font-stretch: 112%;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .toc a {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    padding: 5px 0;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .toc a:hover { color: var(--accent); }
+  .toc .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+  @media (max-width: 899px) {
+    .toc ol { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); column-gap: 16px; }
+  }
+
+  article { max-width: 68ch; min-width: 0; }
+
+  .glance {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 0 44px;
+  }
+  @media (min-width: 1040px) { .glance { grid-template-columns: repeat(3, 1fr); } }
+  .glance div { background: var(--surface); padding: 18px 20px; }
+  .glance h3 {
+    font-family: var(--display);
+    font-stretch: 112%;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .glance p { margin: 0; font-size: 15.5px; line-height: 1.5; }
+
+  .lede { font-size: 19px; line-height: 1.6; margin: 0 0 16px; }
+
+  section { scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 20px); padding-top: 8px; }
+  section + section { margin-top: 36px; border-top: 1px solid var(--rule); padding-top: 34px; }
+  h2.sec {
+    font-family: var(--display);
+    font-stretch: 118%;
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    text-wrap: balance;
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+  }
+  h2.sec .n { color: var(--accent); font-variant-numeric: tabular-nums; min-width: 1.1em; }
+  h3.sub { font-family: var(--body); font-weight: 700; font-size: 17px; margin: 22px 0 6px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 0 0 8px; }
+  li::marker { color: var(--accent); }
+  strong { font-weight: 700; }
+  a[href^="mailto:"] { overflow-wrap: anywhere; }
+
+  .note { background: var(--accent-soft); border-radius: 8px; padding: 14px 18px; margin: 18px 0 0; }
+  .note p { margin: 0; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 15px;
+    padding-inline: 16px;
+    padding-block: 24px 40px;
+  }
+  footer .inner { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+</style>
+</head>
+<body>
+
+<header class="band">
+  <span class="attack" aria-hidden="true"></span>
+  <div class="band-inner">
+    <p class="eyebrow">Project Volleyball &middot; VR for Meta Quest</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">
+      <span>Last updated September 18, 2026</span>
+      <a href="mailto:miyaamiyamiyamiya@gmail.com">miyaamiyamiyamiya@gmail.com</a>
+    </p>
+  </div>
+</header>
+
+<main class="page">
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#collect"><span class="n">1</span>What we collect</a></li>
+      <li><a href="#use"><span class="n">2</span>How we use it</a></li>
+      <li><a href="#share"><span class="n">3</span>Who it&rsquo;s shared with</a></li>
+      <li><a href="#keep"><span class="n">4</span>How long we keep it</a></li>
+      <li><a href="#choices"><span class="n">5</span>Your choices and deleting your data</a></li>
+      <li><a href="#children"><span class="n">6</span>Children</a></li>
+      <li><a href="#security"><span class="n">7</span>Security</a></li>
+      <li><a href="#changes"><span class="n">8</span>Changes</a></li>
+      <li><a href="#contact"><span class="n">9</span>Contact</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <p class="lede">Project Volleyball (&ldquo;the game&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is a multiplayer virtual reality volleyball game for Meta Quest, made by miya. This policy explains what information the game collects, how it&rsquo;s used, who it&rsquo;s shared with, how long it&rsquo;s kept, and how to ask for it to be deleted.</p>
+    <p>If you have a question or request about your data, contact us at <a href="mailto:miyaamiyamiyamiya@gmail.com"><strong>miyaamiyamiyamiya@gmail.com</strong></a>.</p>
+
+    <div class="glance" role="group" aria-label="At a glance">
+      <div>
+        <h3>We collect</h3>
+        <p>Your Meta ID and username, an anonymous player ID, what you own in game, your IP address while you play, and live gameplay and voice during a match.</p>
+      </div>
+      <div>
+        <h3>We never collect</h3>
+        <p>Your real name, card or payment details, precise location or contacts. Meta handles every payment. No selling your data, no voice recordings.</p>
+      </div>
+      <div>
+        <h3>Deleting it</h3>
+        <p>Email us your in-game name and we&rsquo;ll delete our server records within 30 days.</p>
+      </div>
+    </div>
+
+    <section id="collect" aria-labelledby="h-collect">
+      <h2 class="sec" id="h-collect"><span class="n">1</span>What we collect</h2>
+
+      <h3 class="sub">From your Meta account (through the Meta Platform SDK), with your permission</h3>
+      <ul>
+        <li>Your Meta user ID</li>
+        <li>Your Meta username / display name and profile picture</li>
+      </ul>
+      <p>These are used to show your name on your in-game nametag and to recognise your account.</p>
+
+      <h3 class="sub">Created by the game</h3>
+      <ul>
+        <li>An anonymous player ID from Unity Authentication (Unity Gaming Services). It&rsquo;s generated for your copy of the game and isn&rsquo;t linked to your real name.</li>
+        <li>The name shown in game, and the time you joined a match. Our servers record these together with the anonymous player ID (see <a href="#keep">section 4</a>).</li>
+        <li>The cosmetics, effects and perks you own or have been given in game (for example, jump effects). Our servers record these with your player ID so they follow you from match to match.</li>
+        <li>Your player build and game settings (position, height, attributes, visual and audio preferences). These are stored <strong>on your headset only</strong>.</li>
+      </ul>
+
+      <h3 class="sub">If you buy something</h3>
+      <p>When the game offers paid items or subscriptions:</p>
+      <ul>
+        <li>Purchases and subscriptions are made through the Meta Quest Store and paid for through Meta. <strong>We never see or store your card or payment details.</strong></li>
+        <li>Meta tells us what you bought and whether a subscription is active, so we can give you the item or feature. We keep a record of what you own (the item, when you got it, and your subscription status), linked to your Meta user ID and player ID.</li>
+      </ul>
+
+      <h3 class="sub">While you play online</h3>
+      <ul>
+        <li>Your IP address, which is needed to connect your headset to our game servers.</li>
+        <li>Gameplay data needed to run the match in real time: head and hand positions, ball contacts, team and score. This isn&rsquo;t stored after the match ends.</li>
+        <li><strong>Voice chat.</strong> If voice chat is on, your microphone audio is sent in real time to the other players in your match. You can turn voice chat or your microphone off at any time in Settings.</li>
+      </ul>
+
+      <h3 class="sub">If you contact us</h3>
+      <ul>
+        <li>Your email address and what you write to us, used only to answer you.</li>
+      </ul>
+
+      <div class="note">
+        <p>We do <strong>not</strong> collect your real name, payment card details, precise location or contacts. The game currently shows no advertising.</p>
+      </div>
+    </section>
+
+    <section id="use" aria-labelledby="h-use">
+      <h2 class="sec" id="h-use"><span class="n">2</span>How we use it</h2>
+      <ul>
+        <li>To run online matches: connect you to a server, sync gameplay and show your name to other players</li>
+        <li>To let you talk to other players with voice chat</li>
+        <li>To give you what you&rsquo;ve bought or been given: unlock items and subscription features, restore them on a new headset, and handle refunds and support</li>
+        <li>To keep the game fair and working: checking that player stats are valid, managing moderator/admin access, preventing purchase fraud, and fixing bugs using server logs</li>
+        <li>To keep your builds and settings on your device</li>
+      </ul>
+      <p>We don&rsquo;t sell your information, and we don&rsquo;t use it for advertising or profiling.</p>
+    </section>
+
+    <section id="share" aria-labelledby="h-share">
+      <h2 class="sec" id="h-share"><span class="n">3</span>Who it&rsquo;s shared with</h2>
+      <ul>
+        <li><strong>Other players in your match</strong> see your in-game name, your avatar&rsquo;s movements and the cosmetics you&rsquo;re using, and hear your voice if voice chat is on.</li>
+        <li><strong>Meta Platforms</strong> provides the platform features (account, username, entitlement) and handles every purchase and subscription payment, under Meta&rsquo;s own privacy policy: <a href="https://www.meta.com/legal/privacy-policy/">meta.com/legal/privacy-policy</a></li>
+        <li><strong>Unity Technologies</strong> provides anonymous sign-in, the server list (Unity Lobby) and voice chat (Unity Vivox), under Unity&rsquo;s privacy policy: <a href="https://unity.com/legal/privacy-policy">unity.com/legal/privacy-policy</a></li>
+        <li><strong>Vultr</strong> hosts our game servers, which process your IP address and gameplay data while you&rsquo;re connected.</li>
+      </ul>
+      <p>We may disclose information if the law requires it.</p>
+    </section>
+
+    <section id="keep" aria-labelledby="h-keep">
+      <h2 class="sec" id="h-keep"><span class="n">4</span>How long we keep it</h2>
+      <ul>
+        <li><strong>Live match data and voice audio</strong> exist only while the match is running. We don&rsquo;t record voice chat.</li>
+        <li><strong>Server records</strong> (anonymous player ID, in-game name, time joined) are kept for up to <strong>12 months</strong> so we can manage moderator access and investigate problems, then deleted.</li>
+        <li><strong>Ownership and purchase records</strong> (the items, effects and subscriptions you have) are kept for as long as you have them. After that, purchase records are kept only as long as we need them for refunds, fraud prevention, and tax or accounting rules.</li>
+        <li><strong>Server logs</strong> are rotated automatically and kept for a short time.</li>
+        <li><strong>Emails</strong> you send us are kept until your question or request is dealt with.</li>
+        <li><strong>Builds and settings</strong> stay on your headset until you uninstall the game or clear its data.</li>
+      </ul>
+    </section>
+
+    <section id="choices" aria-labelledby="h-choices">
+      <h2 class="sec" id="h-choices"><span class="n">5</span>Your choices and deleting your data</h2>
+      <ul>
+        <li>Turn voice chat or your microphone off in <strong>Settings</strong>.</li>
+        <li>Manage or cancel a subscription at any time in your Meta account. Refunds are handled by Meta under its own refund policy.</li>
+        <li>Uninstalling the game removes everything stored on your headset.</li>
+        <li>To ask for the records on our servers to be deleted, or for a copy of them, email <a href="mailto:miyaamiyamiyamiya@gmail.com"><strong>miyaamiyamiyamiya@gmail.com</strong></a> with your in-game name. We&rsquo;ll respond within 30 days. You don&rsquo;t need to delete your Meta account to do this. Deleting our records can remove items that only exist on our servers; anything you bought through Meta stays attached to your Meta account and can be restored.</li>
+        <li>You can manage the data Meta shares with apps in your Meta account settings.</li>
+      </ul>
+    </section>
+
+    <section id="children" aria-labelledby="h-children">
+      <h2 class="sec" id="h-children"><span class="n">6</span>Children</h2>
+      <p>The game isn&rsquo;t directed at children under 13, and we don&rsquo;t knowingly collect information from them. If you believe a child under 13 has used the game, contact us and we&rsquo;ll delete any records we hold.</p>
+    </section>
+
+    <section id="security" aria-labelledby="h-security">
+      <h2 class="sec" id="h-security"><span class="n">7</span>Security</h2>
+      <p>Information is sent over the internet to our servers and to Meta and Unity services. We restrict server access to authorised administrators and limit what we keep, but no online service can guarantee complete security.</p>
+    </section>
+
+    <section id="changes" aria-labelledby="h-changes">
+      <h2 class="sec" id="h-changes"><span class="n">8</span>Changes</h2>
+      <p>We&rsquo;ll update this policy before the game starts collecting anything new or using your information in a new way &mdash; for example new online features, or new ways to buy things &mdash; and change the date at the top. Significant changes will be shown in the game or in its release notes before they take effect.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="h-contact">
+      <h2 class="sec" id="h-contact"><span class="n">9</span>Contact</h2>
+      <p><strong>miya</strong> &mdash; <a href="mailto:miyaamiyamiyamiya@gmail.com"><strong>miyaamiyamiyamiya@gmail.com</strong></a></p>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="inner">
+    <span>Project Volleyball &middot; made by miya</span>
+    <span>Last updated September 18, 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>
